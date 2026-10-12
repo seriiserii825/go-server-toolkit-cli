@@ -1,7 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"github.com/seriiserii825/go-server-toolkit-cli/server"
+	"github.com/seriiserii825/go-server-toolkit-cli/utils"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	serverName := server.GetServerName()
+	totalStorage := server.GetTotalStorage()
+	usedStorage := server.GetUsedStorage()
+	freeStorage := server.GetFreeStorage(totalStorage, usedStorage)
+
+	diskUsage := server.GetDiskUsagePercentage(totalStorage, usedStorage)
+	status := utils.GetStorageStatus(diskUsage, 70.0)
+	isCritical := utils.IsStorageCritical(diskUsage, 90.0)
+
+	utils.PrintStorageInfo(serverName,
+		utils.FormatStorage(totalStorage),
+		utils.FormatStorage(usedStorage),
+		utils.FormatStorage(freeStorage),
+		utils.FormatPercentage(diskUsage),
+		status,
+		isCritical,
+	)
 }
