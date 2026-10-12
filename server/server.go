@@ -5,9 +5,9 @@ func GetServerName() string {
 }
 
 func GetTotalStorage() float64 {
-	return 500000000000.0 // in GB
+	return 500.0 // in GB
 }
 
 func GetUsedStorage() float64 {
-	return 375000000000.0 // in GB
+	return 375.5 // in GB
 }

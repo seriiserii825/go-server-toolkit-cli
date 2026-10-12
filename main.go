@@ -12,8 +12,8 @@ func main() {
 	freeStorage := server.GetFreeStorage(totalStorage, usedStorage)
 
 	diskUsage := server.GetDiskUsagePercentage(totalStorage, usedStorage)
-	status := utils.GetStorageStatus(diskUsage, 70.0)
-	isCritical := utils.IsStorageCritical(diskUsage, 90.0)
+	status := utils.GetStorageStatus(diskUsage)
+	isCritical := utils.IsStorageCritical(diskUsage)
 
 	utils.PrintStorageInfo(serverName,
 		utils.FormatStorage(totalStorage),
